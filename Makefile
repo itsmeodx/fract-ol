@@ -1,7 +1,8 @@
 CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror
-MLXFLAGS 	=	-lmlx -lXext -lX11 -lm #-fsanitize=address
-INC			=	-I./headers -I./ft_printf/headers -I./ft_printf/Libft/headers
+MLX			=	minilibx-linux/libmlx_Linux.a
+MLXFLAGS 	=	-Lminilibx-linux -lmlx -lXext -lX11 -lm #-fsanitize=address
+INC			=	-I./headers -I./ft_printf/headers -I./ft_printf/Libft/headers -I./minilibx-linux
 OBJDIR		=	obj
 SRCDIR		=	src
 PRINTF		=	ft_printf/libftprintf.a
@@ -23,10 +24,15 @@ OBJ = $(SRC:$(SRCDIR)%.c=$(OBJDIR)%.o)
 
 all: $(NAME)
 
-$(NAME): $(PRINTF) $(OBJ)
-	@$(CC) $(CFLAGS) $(OBJ) $(PRINTF) \
+$(NAME): $(PRINTF) $(OBJ) $(MLX)
+	@$(CC) $(CFLAGS) $(OBJ) $(PRINTF) $(MLX) \
 					$(INC) $(MLXFLAGS) -o $(NAME)
 	@echo "$(CYAN)$(NAME) is ready to use.$(END)"
+
+$(MLX):
+	@echo "$(YELLOW)Compiling $(notdir $@)...$(END)"
+	@make -C minilibx-linux 1&2> /dev/null
+	@echo "$(GREEN)Done.$(END)"
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@echo "$(YELLOW)Compiling $(notdir $<) to $(notdir $@)...$(END)"
