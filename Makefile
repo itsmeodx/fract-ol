@@ -24,7 +24,7 @@ OBJ = $(SRC:$(SRCDIR)%.c=$(OBJDIR)%.o)
 
 all: $(NAME)
 
-$(NAME): $(PRINTF) $(OBJ) $(MLX)
+$(NAME): $(PRINTF) $(MLX) $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) $(PRINTF) $(MLX) \
 					$(INC) $(MLXFLAGS) -o $(NAME)
 	@echo "$(CYAN)$(NAME) is ready to use.$(END)"
