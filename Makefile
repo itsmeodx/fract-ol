@@ -1,5 +1,5 @@
 CC			=	cc
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror -Ofast -O3 -Os
 MLX			=	minilibx-linux/libmlx_Linux.a
 MLXFLAGS 	=	-Lminilibx-linux -lmlx -lXext -lX11 -lm #-fsanitize=address
 INC			=	-I./headers -I./ft_printf/headers -I./ft_printf/Libft/headers -I./minilibx-linux

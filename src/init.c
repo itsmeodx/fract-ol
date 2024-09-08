@@ -6,7 +6,7 @@
 /*   By: oouaadic <oouaadic@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 18:56:50 by oouaadic          #+#    #+#             */
-/*   Updated: 2024/05/02 19:35:10 by oouaadic         ###   ########.fr       */
+/*   Updated: 2024/08/19 14:51:17 by oouaadic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ void	ft_newton_init(t_mlx *mlx)
 		exit(1);
 	}
 	mlx->colors[0] = RED;
-	mlx->colors[1] = GREEN;
-	mlx->colors[2] = BLUE;
+	mlx->colors[1] = BLUE;
+	mlx->colors[2] = GREEN;
 	mlx->tolerance = 0.000001;
 	if (!mlx->roots)
 		mlx->roots = malloc(sizeof(t_complex) * 3);
