@@ -6,7 +6,7 @@
 /*   By: oouaadic <oouaadic@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 15:05:28 by oouaadic          #+#    #+#             */
-/*   Updated: 2024/05/02 16:59:00 by oouaadic         ###   ########.fr       */
+/*   Updated: 2024/11/01 00:04:44 by oouaadic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	my_mlx_pixel_put(t_mlx *mlx, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-int	colorize(t_mlx *mlx, int i)
+inline int	colorize(t_mlx *mlx, int i)
 {
 	if (mlx->alt_color == 1)
 	{
