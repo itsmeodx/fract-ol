@@ -31,7 +31,7 @@ $(NAME): $(PRINTF) $(MLX) $(OBJ)
 
 $(MLX):
 	@echo "$(YELLOW)Compiling $(notdir $@)...$(END)"
-	@make -C minilibx-linux 1>2 2> /dev/null
+	@make -C minilibx-linux > /dev/null 2> /dev/null
 	@echo "$(GREEN)Done.$(END)"
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
