@@ -39,8 +39,8 @@
 # define PURPLE 0x5E1675
 
 // Usage
-# define USAGE "\t./fract-ol [mandelbrot/julia <real> <imaginary>\
-/burningship/newton]\n"
+# define USAGE "\t./fract-ol [mandelbrot / julia <real> <imaginary>\
+/ burningship / newton]\n"
 
 // Keys
 # define XK_PLUS 65451
