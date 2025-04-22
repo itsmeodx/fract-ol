@@ -12,12 +12,29 @@
 
 #include "fractol.h"
 
-double	scale(double x, double zoom, double shift)
+inline double	scale(double x, double zoom, double shift)
 {
 	return ((x - WIDTH / 2) * (4.0 / WIDTH * zoom) + shift);
 }
 
-double	ft_atod(char *str)
+inline static double	ft_atod_fractional(char *str, double result, int i)
+{
+	double	len;
+	double	decimal;
+
+	len = 1;
+	decimal = 0;
+	while (str[i] && ft_isdigit(str[i]))
+	{
+		len *= 10;
+		decimal = decimal * 10 + (str[i] - '0');
+		i++;
+	}
+	result += decimal / len;
+	return (result);
+}
+
+inline double	ft_atod(char *str)
 {
 	double	result;
 	int		sign;
@@ -41,26 +58,9 @@ double	ft_atod(char *str)
 	if (str[i] == '.')
 	{
 		i++;
-		result = ft_atod_decimal(str, result, i);
+		result = ft_atod_fractional(str, result, i);
 	}
 	return (result * sign);
-}
-
-double	ft_atod_decimal(char *str, double result, int i)
-{
-	double	len;
-	double	decimal;
-
-	len = 1;
-	decimal = 0;
-	while (str[i] && ft_isdigit(str[i]))
-	{
-		len *= 10;
-		decimal = decimal * 10 + (str[i] - '0');
-		i++;
-	}
-	result += decimal / len;
-	return (result);
 }
 
 double	dabs(double z)

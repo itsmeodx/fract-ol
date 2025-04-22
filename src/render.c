@@ -12,7 +12,7 @@
 
 #include "fractol.h"
 
-void	check_pixel(t_mlx *mlx, int x, int y)
+inline void	check_pixel(t_mlx *mlx, int x, int y)
 {
 	t_complex	z;
 	t_complex	c;

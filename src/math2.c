@@ -12,7 +12,7 @@
 
 #include "fractol.h"
 
-t_complex	square_complex(t_complex z)
+inline t_complex	square_complex(t_complex z)
 {
 	t_complex	res;
 
@@ -21,7 +21,7 @@ t_complex	square_complex(t_complex z)
 	return (res);
 }
 
-t_complex	cube_complex(t_complex z)
+inline t_complex	cube_complex(t_complex z)
 {
 	t_complex	res;
 
@@ -32,7 +32,7 @@ t_complex	cube_complex(t_complex z)
 	return (res);
 }
 
-t_complex	derivative(t_complex z)
+inline t_complex	derivative(t_complex z)
 {
 	t_complex	res;
 
@@ -41,12 +41,12 @@ t_complex	derivative(t_complex z)
 	return (res);
 }
 
-t_complex	sub_complex(t_complex a, t_complex b)
+inline t_complex	sub_complex(t_complex a, t_complex b)
 {
 	return ((t_complex){a.real - b.real, a.imaginary - b.imaginary});
 }
 
-t_complex	divide_complex(t_complex a, t_complex b)
+inline t_complex	divide_complex(t_complex a, t_complex b)
 {
 	t_complex	res;
 	double		denom;
