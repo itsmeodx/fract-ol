@@ -14,14 +14,14 @@
 
 void	update_zoom(int keysym, int x, int y, t_mlx *mlx)
 {
-	if (keysym == Button4)
+	if (keysym == Button5)
 	{
 		mlx->old_mouse_x = scale(x, mlx->zoom, mlx->shift_x);
 		mlx->old_mouse_y = scale(y, mlx->zoom, mlx->shift_y);
 		mlx->zoom *= 1.15;
 		mlx->max_iter *= 0.95;
 	}
-	else if (keysym == Button5)
+	else if (keysym == Button4)
 	{
 		mlx->old_mouse_x = scale(x, mlx->zoom, mlx->shift_x);
 		mlx->old_mouse_y = scale(y, mlx->zoom, mlx->shift_y);
