@@ -20,7 +20,7 @@ CYAN		=	\e[3;96m
 END			=	\e[0m
 NAME		= fractol
 FILES		=	burningship.c colorize.c free.c hook.c init.c julia.c \
-				main.c mandelbrot.c math.c math2.c newton.c render.c zoom.c
+				main.c mandelbrot.c math.c math2.c newton.c render.c
 
 
 SRC = $(addprefix src/, $(FILES))

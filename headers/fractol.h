@@ -79,10 +79,6 @@ typedef struct s_mlx
 	double		julia_imaginary;
 	double		shift_x;
 	double		shift_y;
-	double		offset_x;
-	double		offset_y;
-	double		old_mouse_x;
-	double		old_mouse_y;
 	double		mouse_x;
 	double		mouse_y;
 }			t_mlx;
@@ -118,7 +114,6 @@ void		data_init(t_mlx *mlx);
 // math.c
 double		scale(double x, double zoom, double shift);
 double		ft_atod(char *str);
-double		ft_atod_decimal(char *str, double result, int i);
 double		dabs(double z);
 
 // math2.c
@@ -133,9 +128,6 @@ void		check_pixel(t_mlx *mlx, int x, int y);
 void		render(t_mlx *mlx);
 void		handel_render(t_mlx *mlx);
 
-// zoom.c
-void		update_zoom(int keysym, int x, int y, t_mlx *mlx);
-
 // colorize.c
 void		my_mlx_pixel_put(t_mlx *mlx, int x, int y, int color);
 int			colorize(t_mlx *mlx, int i);
@@ -144,7 +136,6 @@ int			colorize(t_mlx *mlx, int i);
 int			key_press(int keycode, t_mlx *mlx);
 void		handel_keypress(int keysym, t_mlx *mlx);
 int			mouse_press(int button, int x, int y, t_mlx *mlx);
-int			mouse_move(int x, int y, t_mlx *mlx);
 int			close_mlx(t_mlx *mlx);
 
 #endif // FRACTOL_H

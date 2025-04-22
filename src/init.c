@@ -83,10 +83,6 @@ void	data_init(t_mlx *mlx)
 	ft_newton_init(mlx);
 	mlx->shift_x = 0.0;
 	mlx->shift_y = 0.0;
-	mlx->offset_x = 0.0;
-	mlx->offset_y = 0.0;
-	mlx->old_mouse_x = 0.0;
-	mlx->old_mouse_y = 0.0;
 	mlx->mouse_x = 0.0;
 	mlx->mouse_y = 0.0;
 }

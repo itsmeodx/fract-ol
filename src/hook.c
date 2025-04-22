@@ -61,6 +61,27 @@ void	handel_keypress(int keysym, t_mlx *mlx)
 		data_init(mlx);
 }
 
+inline static void	update_zoom(int keysym, int x, int y, t_mlx *mlx)
+{
+	double	mouse_x;
+	double	mouse_y;
+
+	mouse_x = scale(x, mlx->zoom, mlx->shift_x);
+	mouse_y = scale(y, mlx->zoom, mlx->shift_y);
+	if (keysym == Button5)
+	{
+		mlx->zoom *= 1.05;
+		mlx->max_iter = fmax(mlx->max_iter * 0.95, 20);
+	}
+	else if (keysym == Button4)
+	{
+		mlx->zoom /= 1.05;
+		mlx->max_iter /= 0.95;
+	}
+	mlx->shift_x += mouse_x - scale(x, mlx->zoom, mlx->shift_x);
+	mlx->shift_y += mouse_y - scale(y, mlx->zoom, mlx->shift_y);
+}
+
 int	mouse_press(int keysym, int x, int y, t_mlx *mlx)
 {
 	if (keysym == Button1 || keysym == Button4 || keysym == Button5)
@@ -73,20 +94,8 @@ int	mouse_press(int keysym, int x, int y, t_mlx *mlx)
 		}
 		if (keysym == Button4 || keysym == Button5)
 			update_zoom(keysym, x, y, mlx);
-		mouse_move(x, y, mlx);
 		handel_render(mlx);
 	}
-	return (0);
-}
-
-int	mouse_move(int x, int y, t_mlx *mlx)
-{
-	mlx->mouse_x = (double)x;
-	mlx->mouse_y = (double)y;
-	mlx->offset_x = scale(x, mlx->zoom, mlx->shift_x);
-	mlx->offset_y = scale(y, mlx->zoom, mlx->shift_y);
-	mlx->shift_x += mlx->old_mouse_x - mlx->offset_x;
-	mlx->shift_y += mlx->old_mouse_y - mlx->offset_y;
 	return (0);
 }
 
@@ -95,5 +104,4 @@ int	close_mlx(t_mlx *mlx)
 	free_mlx(mlx);
 	ft_printf("Exiting %s...\n", mlx->name);
 	exit(0);
-	return (0);
 }
